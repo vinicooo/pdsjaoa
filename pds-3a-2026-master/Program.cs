@@ -1,4 +1,6 @@
-using BlazorApp1.Components;
+using AppWebExemplo.Components;
+using AppWebExemplo.Configs;
+using AppWebExemplo.DAO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+// Configuração da Conexão com o Banco de Dados MYSQL
+builder.Services.AddScoped<Conexao>();
+builder.Services.AddScoped<ProcessoDAO>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
