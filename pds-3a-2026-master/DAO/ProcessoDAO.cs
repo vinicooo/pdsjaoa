@@ -21,7 +21,7 @@ namespace AppWebExemplo.DAO
 
                 //buscando e abrindo a conexão com banco de dados
                 using var con = _conexao.GetConnection();
-                con.Open();
+
 
                 string sql = "SELECT * FROM processos";
                 using var comando = con.CreateCommand();
@@ -37,7 +37,7 @@ namespace AppWebExemplo.DAO
                     processo.Interessado = leitor.GetString("interessado_pro");
                     processo.Assunto = leitor.GetString("assunto_pro");
                     processo.Descricao = leitor.GetString("descricao_pro");
-                    processo.Situacao = leitor.GetString("situacao");
+                    processo.Situacao = leitor.GetString("situacao_pro");
 
                     //processo.Data = leitor["data_pro"];
 
@@ -46,8 +46,9 @@ namespace AppWebExemplo.DAO
 
 
                 return lista;
-            }catch 
-            { 
+            }
+            catch
+            {
                 throw;
             }
         }
